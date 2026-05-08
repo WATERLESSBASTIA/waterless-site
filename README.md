@@ -38,7 +38,7 @@ nav {
   color: var(--white); text-decoration: none;
   font-size: 13px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.85;
 }
-.nav-logo { width: 48px; height: 48px; object-fit: contain; }
+.nav-logo { width: 56px; height: 56px; object-fit: contain; }
 .nav-logo-text {
   font-family: 'Arial Black', Impact, sans-serif;
   font-size: 16px; color: var(--gold); letter-spacing: 4px;
@@ -225,7 +225,7 @@ nav {
         <div><div class="stat-num">200+</div><div class="stat-label">Clients</div></div>
         <div><div class="stat-num">4.9★</div><div class="stat-label">Google</div></div>
         <div><div class="stat-num">0L</div><div class="stat-label">D'eau</div></div>
-        <div><div class="stat-num">50%</div><div class="stat-label">Crédit impôt</div></div>
+        
       </div>
     </div>
     <div class="hero-visual">
@@ -233,24 +233,18 @@ nav {
       <div class="visual-card featured">
         <div class="card-icon">🚗</div>
         <div><div class="card-name">Voiture</div><div class="card-detail">Extérieur · Intérieur · Vitres · Jantes</div></div>
-        <div class="card-price">Dès 49€</div>
+        <div class="card-price">Dès 27€</div>
       </div>
       <div class="visual-card">
         <div class="card-icon">🏍️</div>
         <div><div class="card-name">Moto</div><div class="card-detail">Carénages · Cadre · Roues</div></div>
-        <div class="card-price">Dès 39€</div>
+        <div class="card-price">Dès 25€</div>
       </div>
       <div class="visual-card">
         <div class="card-icon">⛵</div>
         <div><div class="card-name">Bateau</div><div class="card-detail">Coque · Pont · Cockpit · Au port</div></div>
         <div class="card-badge">Sur devis</div>
       </div>
-      <div class="visual-card" style="border-color:rgba(245,200,66,0.25);background:rgba(245,200,66,0.05);">
-        <div class="card-icon">💛</div>
-        <div>
-          <div class="card-name" style="color:var(--gold);">Crédit d'impôt 50%</div>
-          <div class="card-detail">Tu récupères la moitié sur ta déclaration</div>
-        </div>
       </div>
     </div>
   </div>
