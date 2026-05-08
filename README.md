@@ -196,7 +196,7 @@ nav {
     <a href="#">Comment ça marche</a>
   </div>
   <div class="nav-center">
-    <img src="logo.PNG" class="nav-logo" alt="Water Less" />
+    <img src="logo.png" class="nav-logo" alt="Water Less" />
   </div>
   <div class="nav-right">
     <a href="#">Avis</a>
