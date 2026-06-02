@@ -214,6 +214,65 @@ nav {
   .hero-title { font-size: clamp(48px, 12vw, 80px); }
 }
 </style>
+
+
+
+
+<style id="mobile-fixes">
+@media (max-width: 768px) {
+  nav {
+    padding: 0 1.5rem !important;
+    grid-template-columns: auto 1fr auto !important;
+    height: 70px !important;
+  }
+  .nav-left { display: none !important; }
+  .nav-right { display: none !important; }
+  .nav-center {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    padding: 0 !important;
+    pointer-events: auto !important;
+  }
+  .nav-logo { width: 44px !important; height: 44px !important; }
+  #burger-btn { display: flex !important; }
+
+  #mobile-menu.open { display: flex !important; }
+
+  .hero-inner {
+    grid-template-columns: 1fr !important;
+    padding: calc(70px + 2rem) 1.5rem 2rem !important;
+    gap: 2rem !important;
+  }
+  .hero-visual { display: none !important; }
+  .hero-stats { gap: 1.5rem !important; }
+
+  #slider-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    padding: 0 1rem !important;
+  }
+
+  #avis .review-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #comment-ca-marche .steps-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  #contact .contact-inner {
+    grid-template-columns: 1fr !important;
+  }
+
+  #scroll-arrow { bottom: 1rem !important; }
+  .sa-label { display: none !important; }
+}
+@media (min-width: 769px) {
+  #burger-btn { display: none !important; }
+  #mobile-menu { display: none !important; }
+}
+</style>
+
 </head>
 <body>
 
@@ -229,6 +288,32 @@ nav {
     <a href="#" onclick="document.getElementById('avis').scrollIntoView({behavior:'smooth'})">Avis</a>
     <a href="#" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Mon compte</a>
   </div>
+
+<div id="burger-btn" onclick="toggleMenu()" style="display:none;">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<div id="mobile-menu">
+  <a href="#" onclick="scrollTo2('avant-apres')">Services</a>
+  <a href="#" onclick="scrollTo2('comment-ca-marche')">Comment ça marche</a>
+  <a href="#" onclick="scrollTo2('avis')">Avis</a>
+  <a href="#" onclick="scrollTo2('reservation')">Réserver</a>
+  <a href="#" onclick="scrollTo2('contact')">Contact</a>
+</div>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('mobile-menu');
+  menu.classList.toggle('open');
+}
+function scrollTo2(id) {
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+</script>
+
 </nav>
 
 <section class="hero">
@@ -469,7 +554,7 @@ nav {
     </div>
   </div>
 
-  <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1.5px; padding:0 4vw; max-width:1400px; margin:0 auto;">
+  <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1.5px; padding:0 4vw; max-width:1400px; margin:0 auto;" class="review-grid">
 
     <div class="review-card">
       <div class="review-stars">★★★★★</div>
