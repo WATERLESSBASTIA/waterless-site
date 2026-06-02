@@ -226,7 +226,7 @@ nav {
     <img src="logo.PNG" class="nav-logo" alt="Water Less" />
   </div>
   <div class="nav-right">
-    <a href="#" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Avis</a>
+    <a href="#" onclick="document.getElementById('avis').scrollIntoView({behavior:'smooth'})">Avis</a>
     <a href="#" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Mon compte</a>
   </div>
 </nav>
@@ -456,6 +456,111 @@ nav {
 </section>
 
 
+
+
+<section id="avis" style="background:#080808; padding: 100px 0;">
+  <div style="text-align:center; margin-bottom: 4rem; padding: 0 4vw;">
+    <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:#F5C842; margin-bottom:0.75rem;">Ce qu'ils disent</div>
+    <h2 style="font-family:'Arial Black',Impact,sans-serif; font-size:clamp(32px,5vw,56px); color:#F5F4F0; text-transform:uppercase; letter-spacing:2px;">AVIS CLIENTS</h2>
+    <div style="display:flex; align-items:center; justify-content:center; gap:0.5rem; margin-top:1rem;">
+      <span style="font-family:'Arial Black',Impact,sans-serif; font-size:32px; color:#F5C842;">4.9</span>
+      <span style="font-size:22px; color:#F5C842;">★★★★★</span>
+      <span style="font-size:13px; color:rgba(245,244,240,0.4); margin-left:0.5rem;">sur Google</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1.5px; padding:0 4vw; max-width:1400px; margin:0 auto;">
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Employeur très professionnel et sérieux dans ses démarches. Bon travail effectué !"</p>
+      <div class="review-author">
+        <div class="review-avatar">A</div>
+        <div>
+          <div class="review-name">Alexandra Sutter</div>
+          <div class="review-date">il y a 4 mois</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Très professionnel, des horaires très flexibles et adaptées à tous les emplois du temps, rapide, efficace, ils se déplacent… je recommande fortement !"</p>
+      <div class="review-author">
+        <div class="review-avatar">M</div>
+        <div>
+          <div class="review-name">Morgane Moscardini</div>
+          <div class="review-date">il y a 8 mois</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Personnel au petit soin. Nettoyage parfait avec respect des horaires. N'hésitez pas !"</p>
+      <div class="review-author">
+        <div class="review-avatar">E</div>
+        <div>
+          <div class="review-name">Eric Lecullier</div>
+          <div class="review-date">il y a 5 mois</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card" style="border-color:rgba(245,200,66,0.3);">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Service au top ! Équipe jeune, dynamique et très professionnelle. Ils viennent directement sur mon lieu de travail, ma voiture ressort comme neuve à chaque fois. Je recommande à 100% !"</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background:#F5C842; color:#090909;">A</div>
+        <div>
+          <div class="review-name">Angelique Buresi</div>
+          <div class="review-date">il y a 1 mois</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center; margin-top:3rem;">
+    <a href="https://www.google.com/search?q=Waterless+Bastia+Avis" target="_blank" style="display:inline-flex; align-items:center; gap:8px; background:transparent; border:1px solid rgba(245,200,66,0.3); color:rgba(245,244,240,0.7); padding:12px 24px; font-family:'Arial Black',Impact,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">
+      VOIR TOUS LES AVIS GOOGLE →
+    </a>
+  </div>
+
+  <style>
+    .review-card {
+      background: #0f0f0f;
+      border: 1px solid rgba(245,200,66,0.1);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.3s;
+    }
+    .review-card.visible { opacity: 1; transform: translateY(0); }
+    .review-card:hover { border-color: rgba(245,200,66,0.3); }
+    .review-stars { color: #F5C842; font-size: 16px; letter-spacing: 2px; }
+    .review-text { font-size: 13px; color: rgba(245,244,240,0.7); line-height: 1.7; font-style: italic; flex: 1; }
+    .review-author { display: flex; align-items: center; gap: 0.75rem; margin-top: auto; }
+    .review-avatar { width: 36px; height: 36px; background: rgba(245,200,66,0.15); border: 1px solid rgba(245,200,66,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Arial Black',sans-serif; font-size: 14px; color: #F5C842; flex-shrink: 0; }
+    .review-name { font-size: 13px; color: #F5F4F0; font-weight: bold; }
+    .review-date { font-size: 11px; color: rgba(245,244,240,0.3); margin-top: 2px; }
+  </style>
+
+  <script>
+    const reviewCards = document.querySelectorAll('.review-card');
+    const reviewObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, idx) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), idx * 120);
+        }
+      });
+    }, { threshold: 0.1 });
+    reviewCards.forEach(card => reviewObserver.observe(card));
+  </script>
+</section>
 
 <section id="comment-ca-marche" style="background:#060606; padding: 100px 0; overflow:hidden;">
   <div style="text-align:center; margin-bottom: 5rem; padding: 0 4vw;">
