@@ -222,7 +222,7 @@ nav {
 @media (max-width: 768px) {
   nav {
     padding: 0 1.5rem !important;
-    grid-template-columns: auto 1fr auto !important;
+    grid-template-columns: auto 1fr auto !important; justify-items: center !important;
     height: 70px !important;
   }
   .nav-left { display: none !important; }
@@ -273,6 +273,38 @@ nav {
 }
 </style>
 
+
+<style>
+@media (max-width: 768px) {
+  #burger-btn { display: flex !important; }
+  .nav-left { display: none !important; }
+  .nav-right { display: none !important; }
+  nav {
+    grid-template-columns: auto 1fr auto !important;
+    padding: 0 1.5rem !important;
+    height: 70px !important;
+  }
+  .nav-center {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    pointer-events: auto !important;
+    padding: 0 !important;
+  }
+  .nav-logo { width: 44px !important; height: 44px !important; }
+  .hero-inner {
+    grid-template-columns: 1fr !important;
+    padding: calc(70px + 2rem) 1.5rem 2rem !important;
+  }
+  .hero-visual { display: none !important; }
+  #slider-container { grid-template-columns: repeat(2,1fr) !important; padding: 0 1rem !important; }
+  .hero-stats { flex-wrap: wrap !important; gap: 1.5rem !important; }
+}
+@media (min-width: 769px) {
+  #burger-btn { display: none !important; }
+  #mobile-menu { display: none !important; }
+}
+</style>
 </head>
 <body>
 
@@ -289,28 +321,34 @@ nav {
     <a href="#" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Mon compte</a>
   </div>
 
-<div id="burger-btn" onclick="toggleMenu()" style="display:none;">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
 
-<div id="mobile-menu">
-  <a href="#" onclick="scrollTo2('avant-apres')">Services</a>
-  <a href="#" onclick="scrollTo2('comment-ca-marche')">Comment ça marche</a>
-  <a href="#" onclick="scrollTo2('avis')">Avis</a>
-  <a href="#" onclick="scrollTo2('reservation')">Réserver</a>
-  <a href="#" onclick="scrollTo2('contact')">Contact</a>
+
+
+
+
+<button id="burger-btn" onclick="toggleMobileMenu()" style="display:none; background:none; border:none; cursor:pointer; padding:8px; flex-direction:column; gap:5px; z-index:200;">
+  <span style="display:block; width:26px; height:2px; background:#F5C842;"></span>
+  <span style="display:block; width:26px; height:2px; background:#F5C842;"></span>
+  <span style="display:block; width:26px; height:2px; background:#F5C842;"></span>
+</button>
+
+<div id="mobile-menu" style="display:none; position:fixed; top:70px; left:0; right:0; background:#090909; border-bottom:1px solid rgba(245,200,66,0.2); padding:2rem 1.5rem; z-index:150; flex-direction:column; gap:1.5rem;">
+  <span onclick="scrollTo2('avant-apres'); toggleMobileMenu();" style="color:#F5F4F0; font-size:17px; letter-spacing:2px; text-transform:uppercase; cursor:pointer; display:block;">Services</span>
+  <span onclick="scrollTo2('comment-ca-marche'); toggleMobileMenu();" style="color:#F5F4F0; font-size:17px; letter-spacing:2px; text-transform:uppercase; cursor:pointer; display:block;">Comment ça marche</span>
+  <span onclick="scrollTo2('avis'); toggleMobileMenu();" style="color:#F5F4F0; font-size:17px; letter-spacing:2px; text-transform:uppercase; cursor:pointer; display:block;">Avis</span>
+  <span onclick="scrollTo2('reservation'); toggleMobileMenu();" style="color:#F5C842; font-size:17px; letter-spacing:2px; text-transform:uppercase; cursor:pointer; display:block;">Réserver</span>
+  <span onclick="scrollTo2('contact'); toggleMobileMenu();" style="color:#F5F4F0; font-size:17px; letter-spacing:2px; text-transform:uppercase; cursor:pointer; display:block;">Contact</span>
 </div>
 
 <script>
-function toggleMenu() {
+function toggleMobileMenu() {
   const menu = document.getElementById('mobile-menu');
-  menu.classList.toggle('open');
+  const isOpen = menu.style.display === 'flex';
+  menu.style.display = isOpen ? 'none' : 'flex';
 }
 function scrollTo2(id) {
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
-  document.getElementById('mobile-menu').classList.remove('open');
+  const el = document.getElementById(id);
+  if(el) el.scrollIntoView({behavior:'smooth'});
 }
 </script>
 
