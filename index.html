@@ -409,6 +409,95 @@ nav {
   }
 }
 </style>
+
+<style id="mobile-layout-fix">
+@media (max-width: 768px) {
+
+  /* Hero — photo plein écran dès le haut */
+  .hero {
+    min-height: 100svh !important;
+    padding: 0 !important;
+  }
+  .hero-bg {
+    background-attachment: scroll !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: -1 !important;
+  }
+  .hero-inner {
+    grid-template-columns: 1fr !important;
+    padding: calc(70px + 2rem) 1.5rem 2rem !important;
+    min-height: 100svh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .hero-visual { display: none !important; }
+
+  /* Nav — logo centré, burger à gauche */
+  nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 70px !important;
+    padding: 0 1.5rem !important;
+    background: rgba(9,9,9,0.95) !important;
+    z-index: 100 !important;
+  }
+  .nav-left, .nav-right { display: none !important; }
+  .nav-center {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    padding: 0 !important;
+  }
+  #burger-btn {
+    position: absolute !important;
+    left: 1.5rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    display: flex !important;
+  }
+
+  /* Comment ça marche — 2x2 */
+  #comment-ca-marche > div:last-child {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+    padding: 0 1.5rem !important;
+  }
+
+  /* Contact — 1 colonne */
+  #contact > div {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    padding: 0 1.5rem !important;
+  }
+
+  /* Avant/après — 2 colonnes */
+  #slider-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    padding: 0 1rem !important;
+  }
+
+  /* Avis — 1 colonne */
+  #avis > div:nth-child(2) {
+    grid-template-columns: 1fr !important;
+    padding: 0 1.5rem !important;
+  }
+
+  /* Flèche scroll */
+  #scroll-arrow {
+    bottom: 1rem !important;
+  }
+}
+</style>
 </head>
 <body>
 
