@@ -952,7 +952,7 @@ function scrollTo2(id) {
     <h2 style="font-family:'Arial Black',Impact,sans-serif; font-size:clamp(32px,5vw,56px); color:#F5F4F0; text-transform:uppercase; letter-spacing:2px;">COMMENT ÇA MARCHE</h2>
   </div>
 
-  <div style="max-width:1100px; margin:0 auto; padding:0 4vw; display:grid; grid-template-columns:repeat(4,1fr); gap:2rem;">
+  <div id="steps-grid" style="max-width:1100px; margin:0 auto; padding:0 4vw; display:grid; grid-template-columns:repeat(4,1fr); gap:2rem;">
     
     <div class="step-card" data-step="0">
       <div class="step-num">01</div>
@@ -1186,5 +1186,32 @@ function scrollTo2(id) {
   window.addEventListener('load', fixStepsGrid);
   window.addEventListener('resize', fixStepsGrid);
 </script>
+
+<script>
+(function() {
+  function applyCarousel() {
+    const grid = document.getElementById('steps-grid');
+    if (!grid) return;
+    const cards = grid.querySelectorAll('.step-card');
+    
+    if (window.innerWidth <= 768) {
+      grid.style.cssText = 'display:flex !important; flex-direction:row !important; overflow-x:scroll !important; scroll-snap-type:x mandatory !important; -webkit-overflow-scrolling:touch !important; gap:0 !important; padding:0 !important; scrollbar-width:none !important; -ms-overflow-style:none !important;';
+      cards.forEach(card => {
+        card.style.cssText = card.style.cssText + '; min-width:100vw !important; width:100vw !important; flex-shrink:0 !important; scroll-snap-align:center !important; padding:2rem 1.5rem !important; box-sizing:border-box !important;';
+      });
+    } else {
+      grid.style.cssText = 'display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; padding:0 4vw;';
+      cards.forEach(card => {
+        card.style.cssText = '';
+      });
+    }
+  }
+  
+  document.addEventListener('DOMContentLoaded', applyCarousel);
+  window.addEventListener('resize', applyCarousel);
+  setTimeout(applyCarousel, 100);
+})();
+</script>
+
 </body>
 </html>
