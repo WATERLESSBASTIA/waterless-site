@@ -2,7 +2,37 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<style>
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100svh !important;
+  }
+  .hero-bg {
+    min-height: 100svh !important;
+    background-attachment: scroll !important;
+  }
+  /* Empêcher le scroll horizontal */
+  body, html {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+  /* Logo centré, burger à gauche */
+  nav {
+    grid-template-columns: auto 1fr auto !important;
+    padding: 0 1.5rem !important;
+    height: 70px !important;
+  }
+  .nav-center {
+    justify-self: center !important;
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+  }
+}
+</style>
 <title>WATERLESS — Détailing sans eau à domicile</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -303,6 +333,39 @@ nav {
 @media (min-width: 769px) {
   #burger-btn { display: none !important; }
   #mobile-menu { display: none !important; }
+}
+</style>
+
+<style id="hero-mobile-fix">
+@media (max-width: 768px) {
+  .hero-inner {
+    padding-bottom: 1.5rem !important;
+  }
+  .hero-stats {
+    gap: 1rem !important;
+    padding-top: 1rem !important;
+  }
+  .stat-num {
+    font-size: 26px !important;
+  }
+  .stat-label {
+    font-size: 9px !important;
+  }
+  #scroll-arrow {
+    bottom: 0.5rem !important;
+  }
+  #scroll-arrow .sa-circle-wrap {
+    width: 48px !important;
+    height: 48px !important;
+  }
+  #scroll-arrow .sa-btn {
+    width: 38px !important;
+    height: 38px !important;
+  }
+  .sa-ring {
+    width: 48px !important;
+    height: 48px !important;
+  }
 }
 </style>
 </head>
