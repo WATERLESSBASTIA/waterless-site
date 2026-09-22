@@ -566,6 +566,37 @@ nav {
   #steps-dots { display: none !important; }
 }
 </style>
+
+<style id="ios-safari-fix">
+@media (max-width: 768px) {
+  /* Safari iOS : pas de fond fixed + filter (photo qui disparaît / saute), on repasse en absolute dans le hero */
+  .hero-bg {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    background-attachment: scroll !important;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  .hero-overlay, .hero-overlay-bottom { z-index: 1 !important; }
+  .hero-inner { position: relative !important; z-index: 2 !important; }
+
+  /* Safari iOS : overflow-x hidden sur body ne suffit pas, il faut html + clip */
+  html { overflow-x: hidden !important; overflow-x: clip !important; }
+  body { overflow-x: hidden !important; overflow-x: clip !important; position: relative !important; }
+  .hero { overflow: hidden !important; }
+  #comment-ca-marche { overflow: hidden !important; }
+  #steps-grid { width: 100% !important; max-width: 100% !important; }
+  .step-card { min-width: 100% !important; width: 100% !important; }
+
+  /* Sécurité layout mobile (au cas où un bloc inline reprend le dessus) */
+  #slider-container { grid-template-columns: repeat(2, 1fr) !important; }
+  #contact > div { grid-template-columns: 1fr !important; }
+  .sa-label { display: none !important; }
+  .nav-logo { width: 44px !important; height: 44px !important; }
+  img, svg, iframe { max-width: 100%; }
+}
+</style>
 </head>
 <body>
 
