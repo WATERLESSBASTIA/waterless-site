@@ -33,7 +33,7 @@
   }
 }
 </style>
-<title>Mon compte — WATERLESS Bastia</title>
+<title>Comment ça marche — WATERLESS Bastia</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root { --black: #090909; --gold: #F5C842; --blue: #1A3A8F; --white: #F5F4F0; }
@@ -687,34 +687,120 @@ function goHome(id) {
 </nav>
 <main>
 <div class="page-hero">
-  <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:#F5C842; margin-bottom:0.75rem;">Espace client</div>
-  <h1>MON <span>COMPTE</span></h1>
-  <p>Ton espace client WATERLESS</p>
+  <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:#F5C842; margin-bottom:0.75rem;">4 étapes</div>
+  <h1>COMMENT <span>ÇA MARCHE</span></h1>
+  <p>Simple. Rapide. Chez toi.</p>
 </div>
-<section id="mon-compte" style="background:#080808; padding: 60px 0 100px;">
-  <div style="max-width:440px; margin:0 auto; padding:0 1.5rem;">
-    <form onsubmit="event.preventDefault(); document.getElementById('compte-msg').style.display='block';" style="background:#0f0f0f; border:1px solid rgba(245,200,66,0.15); padding:2rem; display:flex; flex-direction:column; gap:1.25rem;">
-      <label style="display:flex; flex-direction:column; gap:6px; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:rgba(245,244,240,0.5);">
-        Email
-        <input type="email" required placeholder="toi@email.com" style="background:#090909; border:1px solid rgba(245,200,66,0.2); color:#F5F4F0; padding:14px; font-size:15px; outline:none;">
-      </label>
-      <label style="display:flex; flex-direction:column; gap:6px; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:rgba(245,244,240,0.5);">
-        Mot de passe
-        <input type="password" required placeholder="••••••••" style="background:#090909; border:1px solid rgba(245,200,66,0.2); color:#F5F4F0; padding:14px; font-size:15px; outline:none;">
-      </label>
-      <button type="submit" style="background:#F5C842; color:#090909; padding:16px; border:none; cursor:pointer; font-family:'Arial Black',Impact,sans-serif; font-size:14px; letter-spacing:2px; text-transform:uppercase;">SE CONNECTER</button>
-      <div id="compte-msg" style="display:none; font-size:13px; color:#F5C842; text-align:center; line-height:1.6;">L'espace client ouvre bientôt. En attendant, réserve directement en ligne.</div>
-      <div style="text-align:center; font-size:12px; color:rgba(245,244,240,0.4);">Pas encore de compte ? <span style="color:#F5C842;">Il sera créé à ta première réservation.</span></div>
-    </form>
-    <div style="margin-top:2rem; display:grid; gap:0.75rem;">
-      <div style="display:flex; gap:12px; align-items:center; font-size:13px; color:rgba(245,244,240,0.6);"><span style="color:#F5C842;">✓</span> Historique de tes prestations</div>
-      <div style="display:flex; gap:12px; align-items:center; font-size:13px; color:rgba(245,244,240,0.6);"><span style="color:#F5C842;">✓</span> Réservation en 1 clic avec tes véhicules enregistrés</div>
-      <div style="display:flex; gap:12px; align-items:center; font-size:13px; color:rgba(245,244,240,0.6);"><span style="color:#F5C842;">✓</span> Abonnements et rappels d'entretien</div>
+<section id="comment-ca-marche" style="background:#060606; padding: 100px 0; overflow:hidden;">
+
+  <div id="steps-grid" style="max-width:1100px; margin:0 auto; padding:0 4vw; display:grid; grid-template-columns:repeat(4,1fr); gap:2rem;">
+    
+    <div class="step-card" data-step="0">
+      <div class="step-num">01</div>
+      <div class="step-icon">📅</div>
+      <div class="step-title">TU RÉSERVES</div>
+      <div class="step-desc">Tu choisis ton créneau en ligne en 2 minutes. Confirmation immédiate.</div>
     </div>
-    <div style="text-align:center; margin-top:2.5rem;">
-      <a href="index.html#reservation" style="display:inline-block; background:#F5C842; color:#090909; padding:16px 32px; text-decoration:none; font-family:'Arial Black',Impact,sans-serif; font-size:14px; letter-spacing:2px; text-transform:uppercase;">PRENDRE RDV →</a>
+
+    <div class="step-card" data-step="1">
+      <div class="step-num">02</div>
+      <div class="step-icon">🚐</div>
+      <div class="step-title">ON ARRIVE</div>
+      <div class="step-desc">On vient chez toi, au bureau, ou là où ton véhicule se trouve.</div>
     </div>
+
+    <div class="step-card" data-step="2">
+      <div class="step-num">03</div>
+      <div class="step-icon">✨</div>
+      <div class="step-title">ON TRAITE</div>
+      <div class="step-desc">Produits biodégradables, zéro eau. Résultat pro en 1h30 en moyenne.</div>
+    </div>
+
+    <div class="step-card" data-step="3">
+      <div class="step-num">04</div>
+      <div class="step-icon">🏆</div>
+      <div class="step-title">C'EST FINI</div>
+      <div class="step-desc">Tu reprends ton véhicule comme neuf. On s'en va. C'est tout.</div>
+    </div>
+
   </div>
+
+  <style>
+    .step-card {
+      background: #0f0f0f;
+      border: 1px solid rgba(245,200,66,0.1);
+      padding: 2rem 1.5rem;
+      position: relative;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.3s ease;
+    }
+    .step-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .step-card:hover {
+      border-color: rgba(245,200,66,0.4);
+    }
+    .step-card:hover .step-num {
+      color: rgba(245,200,66,0.15);
+    }
+    .step-num {
+      font-family: 'Arial Black', Impact, sans-serif;
+      font-size: 72px;
+      color: rgba(245,200,66,0.06);
+      line-height: 1;
+      margin-bottom: -16px;
+      transition: color 0.3s;
+    }
+    .step-icon {
+      font-size: 32px;
+      margin-bottom: 1rem;
+    }
+    .step-title {
+      font-family: 'Arial Black', Impact, sans-serif;
+      font-size: 18px;
+      color: #F5F4F0;
+      letter-spacing: 2px;
+      margin-bottom: 0.75rem;
+    }
+    .step-desc {
+      font-size: 13px;
+      color: rgba(245,244,240,0.5);
+      line-height: 1.7;
+    }
+    .step-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #F5C842, transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease 0.3s;
+    }
+    .step-card.visible::after {
+      transform: scaleX(1);
+    }
+    @media(max-width:768px) {
+      #comment-ca-marche .step-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+
+  <script>
+    const stepCards = document.querySelectorAll('.step-card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const delay = parseInt(entry.target.dataset.step) * 150;
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, delay);
+        }
+      });
+    }, { threshold: 0.2 });
+    stepCards.forEach(card => observer.observe(card));
+  </script>
 </section>
 </main>
 <section id="contact" style="background:#0a0a0a; padding: 80px 0; border-top: 1px solid rgba(245,200,66,0.1);">
@@ -803,5 +889,46 @@ function goHome(id) {
 
   </div>
 </section>
+<script>
+  function fixStepsGrid() {
+    const grid = document.getElementById('steps-grid');
+    if (!grid) return;
+    if (window.innerWidth <= 768) {
+      grid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+      grid.style.padding = '0 1.5rem';
+    } else {
+      grid.style.gridTemplateColumns = 'repeat(4, 1fr)';
+      grid.style.padding = '0 4vw';
+    }
+  }
+  window.addEventListener('load', fixStepsGrid);
+  window.addEventListener('resize', fixStepsGrid);
+</script>
+
+<script>
+(function() {
+  function applyCarousel() {
+    const grid = document.getElementById('steps-grid');
+    if (!grid) return;
+    const cards = grid.querySelectorAll('.step-card');
+    
+    if (window.innerWidth <= 768) {
+      grid.style.cssText = 'display:flex !important; flex-direction:row !important; overflow-x:scroll !important; scroll-snap-type:x mandatory !important; -webkit-overflow-scrolling:touch !important; gap:0 !important; padding:0 !important; scrollbar-width:none !important; -ms-overflow-style:none !important;';
+      cards.forEach(card => {
+        card.style.cssText = card.style.cssText + '; min-width:100% !important; width:100% !important; flex-shrink:0 !important; scroll-snap-align:center !important; padding:2rem 1.5rem !important; box-sizing:border-box !important;';
+      });
+    } else {
+      grid.style.cssText = 'display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; padding:0 4vw;';
+      cards.forEach(card => {
+        card.style.cssText = '';
+      });
+    }
+  }
+  
+  document.addEventListener('DOMContentLoaded', applyCarousel);
+  window.addEventListener('resize', applyCarousel);
+  setTimeout(applyCarousel, 100);
+})();
+</script>
 </body>
 </html>
