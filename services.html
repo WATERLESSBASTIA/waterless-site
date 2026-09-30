@@ -2,8 +2,38 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WATERLESS — Détailing sans eau à domicile</title>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<style>
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100svh !important;
+  }
+  .hero-bg {
+    min-height: 100svh !important;
+    background-attachment: scroll !important;
+  }
+  /* Empêcher le scroll horizontal */
+  body, html {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+  /* Logo centré, burger à gauche */
+  nav {
+    grid-template-columns: auto 1fr auto !important;
+    padding: 0 1.5rem !important;
+    height: 70px !important;
+  }
+  .nav-center {
+    justify-self: center !important;
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+  }
+}
+</style>
+<title>Services · Avant / Après — WATERLESS Bastia</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root { --black: #090909; --gold: #F5C842; --blue: #1A3A8F; --white: #F5F4F0; }
@@ -214,119 +244,454 @@ nav {
   .hero-title { font-size: clamp(48px, 12vw, 80px); }
 }
 </style>
+
+
+
+
+<style id="mobile-fixes">
+@media (max-width: 768px) {
+  nav {
+    padding: 0 1.5rem !important;
+    grid-template-columns: auto 1fr auto !important; justify-items: center !important;
+    height: 70px !important;
+  }
+  .nav-left { display: none !important; }
+  .nav-right { display: none !important; }
+  .nav-center {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    padding: 0 !important;
+    pointer-events: auto !important;
+  }
+  .nav-logo { width: 44px !important; height: 44px !important; }
+  #burger-btn { display: flex !important; }
+
+  #mobile-menu.open { display: flex !important; }
+
+  .hero-inner {
+    grid-template-columns: 1fr !important;
+    padding: calc(70px + 2rem) 1.5rem 2rem !important;
+    gap: 2rem !important;
+  }
+  .hero-visual { display: none !important; }
+  .hero-stats { gap: 1.5rem !important; }
+
+  #slider-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    padding: 0 1rem !important;
+  }
+
+  #avis .review-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #comment-ca-marche .steps-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  #contact .contact-inner {
+    grid-template-columns: 1fr !important;
+  }
+
+  #scroll-arrow { bottom: 1rem !important; }
+  .sa-label { display: none !important; }
+}
+@media (min-width: 769px) {
+  #burger-btn { display: none !important; }
+  #mobile-menu { display: none !important; }
+}
+</style>
+
+
+<style>
+@media (max-width: 768px) {
+  #burger-btn { display: flex !important; }
+  .nav-left { display: none !important; }
+  .nav-right { display: none !important; }
+  nav {
+    grid-template-columns: auto 1fr auto !important;
+    padding: 0 1.5rem !important;
+    height: 70px !important;
+  }
+  .nav-center {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    pointer-events: auto !important;
+    padding: 0 !important;
+  }
+  .nav-logo { width: 44px !important; height: 44px !important; }
+  .hero-inner {
+    grid-template-columns: 1fr !important;
+    padding: calc(70px + 2rem) 1.5rem 2rem !important;
+  }
+  .hero-visual { display: none !important; }
+  #slider-container { grid-template-columns: repeat(2,1fr) !important; padding: 0 1rem !important; }
+  .hero-stats { flex-wrap: wrap !important; gap: 1.5rem !important; }
+}
+@media (min-width: 769px) {
+  #burger-btn { display: none !important; }
+  #mobile-menu { display: none !important; }
+}
+</style>
+
+<style id="hero-mobile-fix">
+@media (max-width: 768px) {
+  .hero-inner {
+    padding-bottom: 1.5rem !important;
+  }
+  .hero-stats {
+    gap: 1rem !important;
+    padding-top: 1rem !important;
+  }
+  .stat-num {
+    font-size: 26px !important;
+  }
+  .stat-label {
+    font-size: 9px !important;
+  }
+  #scroll-arrow {
+    bottom: 0.5rem !important;
+  }
+  #scroll-arrow .sa-circle-wrap {
+    width: 48px !important;
+    height: 48px !important;
+  }
+  #scroll-arrow .sa-btn {
+    width: 38px !important;
+    height: 38px !important;
+  }
+  .sa-ring {
+    width: 48px !important;
+    height: 48px !important;
+  }
+}
+</style>
+
+<style id="nav-arrow-fix">
+@media (max-width: 768px) {
+  /* Nav : logo centré, burger à gauche, pas de bande noire */
+  nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    height: 70px !important;
+    padding: 0 1.5rem !important;
+  }
+  .nav-left, .nav-right { display: none !important; }
+  .nav-center {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    padding: 0 !important;
+  }
+  #burger-btn {
+    position: absolute !important;
+    left: 1.5rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    display: flex !important;
+  }
+
+  /* Flèche scroll — sortir du hero, en bas centré */
+  #scroll-arrow {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+    animation: none !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin: 1.5rem auto 0 !important;
+    width: 100% !important;
+  }
+}
+</style>
+
+<style id="mobile-layout-fix">
+@media (max-width: 768px) {
+
+  /* Hero — photo plein écran dès le haut */
+  .hero {
+    min-height: 100svh !important;
+    padding: 0 !important;
+  }
+  .hero-bg {
+    background-attachment: scroll !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: -1 !important;
+  }
+  .hero-inner {
+    grid-template-columns: 1fr !important;
+    padding: calc(70px + 2rem) 1.5rem 2rem !important;
+    min-height: 100svh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .hero-visual { display: none !important; }
+
+  /* Nav — logo centré, burger à gauche */
+  nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 70px !important;
+    padding: 0 1.5rem !important;
+    background: rgba(9,9,9,0.95) !important;
+    z-index: 100 !important;
+  }
+  .nav-left, .nav-right { display: none !important; }
+  .nav-center {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    padding: 0 !important;
+  }
+  #burger-btn {
+    position: absolute !important;
+    left: 1.5rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    display: flex !important;
+  }
+
+  /* Comment ça marche — 2x2 */
+  #comment-ca-marche > div:last-child {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+    padding: 0 1.5rem !important;
+  }
+
+  /* Contact — 1 colonne */
+  #contact > div {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    padding: 0 1.5rem !important;
+  }
+
+  /* Avant/après — 2 colonnes */
+  #slider-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    padding: 0 1rem !important;
+  }
+
+  /* Avis — 1 colonne */
+  #avis > div:nth-child(2) {
+    grid-template-columns: 1fr !important;
+    padding: 0 1.5rem !important;
+  }
+
+  /* Flèche scroll */
+  #scroll-arrow {
+    bottom: 1rem !important;
+  }
+}
+</style>
+
+<style id="steps-mobile-fix">
+@media (max-width: 768px) {
+  /* Cibler la grille des étapes directement */
+  #comment-ca-marche div[style*="grid-template-columns:repeat(4"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+    padding: 0 1.5rem !important;
+  }
+  /* Fallback — cibler par contenu */
+  .step-card {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+}
+</style>
+
+<style id="steps-scroll-fix">
+@media (max-width: 768px) {
+  #steps-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: scroll !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 1rem !important;
+    padding: 0 1.5rem 1rem !important;
+    scrollbar-width: none !important;
+  }
+  #steps-grid::-webkit-scrollbar { display: none !important; }
+  .step-card {
+    min-width: 75vw !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: start !important;
+  }
+}
+</style>
+
+<style id="steps-carousel">
+@media (max-width: 768px) {
+  #steps-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: scroll !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    scrollbar-width: none !important;
+  }
+  #steps-grid::-webkit-scrollbar { display: none !important; }
+  .step-card {
+    min-width: 100vw !important;
+    width: 100vw !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: center !important;
+    padding: 3rem 2rem !important;
+    box-sizing: border-box !important;
+  }
+  /* Indicateur de pagination */
+  #steps-dots {
+    display: flex !important;
+  }
+}
+@media (min-width: 769px) {
+  #steps-dots { display: none !important; }
+}
+</style>
+
+<style id="ios-safari-fix">
+@media (max-width: 768px) {
+  /* Safari iOS : pas de fond fixed + filter (photo qui disparaît / saute), on repasse en absolute dans le hero */
+  .hero-bg {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    background-attachment: scroll !important;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  .hero-overlay, .hero-overlay-bottom { z-index: 1 !important; }
+  .hero-inner { position: relative !important; z-index: 2 !important; }
+
+  /* Safari iOS : overflow-x hidden sur body ne suffit pas, il faut html + clip */
+  html { overflow-x: hidden !important; overflow-x: clip !important; }
+  body { overflow-x: hidden !important; overflow-x: clip !important; position: relative !important; }
+  .hero { overflow: hidden !important; }
+  #comment-ca-marche { overflow: hidden !important; }
+  #steps-grid { width: 100% !important; max-width: 100% !important; }
+  .step-card { min-width: 100% !important; width: 100% !important; }
+
+  /* Sécurité layout mobile (au cas où un bloc inline reprend le dessus) */
+  #slider-container { grid-template-columns: repeat(2, 1fr) !important; }
+  #contact > div { grid-template-columns: 1fr !important; }
+  .sa-label { display: none !important; }
+  .nav-logo { width: 44px !important; height: 44px !important; }
+  img, svg, iframe { max-width: 100%; }
+}
+</style>
+
+<style id="hero-video">
+.hero-bg { background-image: url('hero-poster.jpg'); }
+.hero-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 40%;
+  display: block;
+}
+@media (min-width: 769px) {
+  .hero-video { object-position: center 35%; }
+}
+</style>
+<style id="subpage">
+body.subpage nav { position: absolute; background: rgba(9,9,9,0.97); }
+body.subpage main { padding-top: 110px; }
+@media (max-width: 768px) { body.subpage main { padding-top: 70px; } }
+body.subpage .page-hero {
+  background: #090909; border-bottom: 1px solid rgba(245,200,66,0.15);
+  padding: 56px 4vw 40px; text-align: center;
+}
+body.subpage .page-hero h1 {
+  font-family: 'Arial Black', Impact, sans-serif; font-size: clamp(36px,6vw,72px);
+  color: #F5F4F0; text-transform: uppercase; letter-spacing: 2px; line-height: 1;
+}
+body.subpage .page-hero h1 span { color: #F5C842; }
+body.subpage .page-hero p { font-size: 14px; color: rgba(245,244,240,0.5); margin-top: 1rem; letter-spacing: 1px; }
+body.subpage main > section { padding-top: 48px !important; }
+@media (max-width: 768px) { body.subpage main > section { padding-top: 24px !important; } }
+body.subpage .back-home {
+  display: inline-block; margin-top: 1.5rem; color: #F5C842; text-decoration: none;
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase; border: 1px solid rgba(245,200,66,0.3); padding: 10px 18px;
+}
+</style>
 </head>
-<body>
+<body class="subpage">
 
 <nav>
   <div class="nav-left">
-    <a href="#">Services</a>
-    <a href="#">Comment ça marche</a>
+    <a href="services.html">Services</a>
+    <a href="comment-ca-marche.html">Comment ça marche</a>
   </div>
   <div class="nav-center">
-    <img src="logo.png" class="nav-logo" alt="Water Less" />
+    <a href="index.html" style="display:flex; pointer-events:auto;"><img src="logo.PNG" class="nav-logo" alt="Water Less" /></a>
   </div>
   <div class="nav-right">
-    <a href="#">Avis</a>
-    <a href="#">Mon compte</a>
-  </div>
-</nav>
-
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-overlay-bottom"></div>
-  <div class="hero-inner">
-    <div>
-      <div class="hero-badge"><span class="dot"></span> Haute-Corse · À domicile</div>
-      <h1 class="hero-title">
-        DETAILING<br>
-        <span class="gold">SANS EAU.</span><br>
-        <span class="blue-out">CHEZ TOI.</span>
-      </h1>
-      <p class="hero-sub">On vient chez toi. On repart.<br>Ta voiture, ta moto, ton bateau ou ton intérieur ressort comme neuf.<br>Sans une goutte d'eau, sans que tu bouges.</p>
-      <div class="hero-actions">
-        <button class="btn-primary">PRENDRE RDV</button>
-        <button class="btn-ghost">VOIR LES SERVICES</button>
-      </div>
-      <div class="hero-stats">
-        <div><div class="stat-num">200+</div><div class="stat-label">Clients</div></div>
-        <div><div class="stat-num">4.9★</div><div class="stat-label">Google</div></div>
-        <div><div class="stat-num">0L</div><div class="stat-label">D'eau</div></div>
-        <div><div class="stat-num">50%</div><div class="stat-label">D'avance immédiate</div></div>
-        
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="zone-tag"><span>Nos prestations</span><span class="zone-line"></span></div>
-      <div class="visual-card featured">
-        <div class="card-icon">🚗</div>
-        <div><div class="card-name">Voiture</div><div class="card-detail">Extérieur · Intérieur · Vitres · Jantes</div></div>
-        <div class="card-price">Dès 27€</div>
-      </div>
-      <div class="visual-card">
-        <div class="card-icon">🏍️</div>
-        <div><div class="card-name">Moto</div><div class="card-detail">Carénages · Cadre · Roues</div></div>
-        <div class="card-price">Dès 25€</div>
-      </div>
-      <div class="visual-card">
-        <div class="card-icon">⛵</div>
-        <div><div class="card-name">Bateau</div><div class="card-detail">Coque · Pont · Cockpit · Au port</div></div>
-        <div class="card-badge">Sur devis</div>
-      </div>
-      </div>
-    </div>
+    <a href="avis.html">Avis</a>
+    <a href="mon-compte.html">Mon compte</a>
   </div>
 
-<div id="scroll-arrow" onclick="document.getElementById('avant-apres').scrollIntoView({behavior:'smooth'})">
-  <style>
-    @keyframes sa-float { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-12px)} }
-    @keyframes sa-ring-out { 0%{transform:translate(-50%,-50%) scale(0.8);opacity:0.8} 100%{transform:translate(-50%,-50%) scale(2.2);opacity:0} }
-    @keyframes sa-chevron { 0%,100%{opacity:0;transform:translateY(-6px)} 50%{opacity:1;transform:translateY(4px)} }
-    #scroll-arrow { position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%); z-index:10; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:10px; animation:sa-float 2.5s ease-in-out infinite; }
-    .sa-label { font-size:10px; letter-spacing:4px; text-transform:uppercase; color:rgba(245,200,66,0.8); }
-    .sa-circle-wrap { position:relative; width:64px; height:64px; }
-    .sa-ring { position:absolute; top:50%; left:50%; width:64px; height:64px; border-radius:50%; border:2px solid rgba(245,200,66,0.6); animation:sa-ring-out 2s ease-out infinite; }
-    .sa-ring2 { animation:sa-ring-out 2s ease-out 0.7s infinite; }
-    .sa-btn { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:52px; height:52px; background:rgba(245,200,66,0.12); border:2px solid #F5C842; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px; }
-    .sa-c1 { animation:sa-chevron 1.2s ease-in-out infinite; }
-    .sa-c2 { animation:sa-chevron 1.2s ease-in-out 0.3s infinite; }
-    .sa-c3 { animation:sa-chevron 1.2s ease-in-out 0.6s infinite; }
-  </style>
-  <span class="sa-label">Voir les résultats</span>
-  <div class="sa-circle-wrap">
-    <div class="sa-ring"></div>
-    <div class="sa-ring sa-ring2"></div>
-    <div class="sa-btn">
-      <svg class="sa-c1" width="20" height="8" viewBox="0 0 20 8"><path d="M2 2 L10 7 L18 2" stroke="#F5C842" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-      <svg class="sa-c2" width="20" height="8" viewBox="0 0 20 8"><path d="M2 2 L10 7 L18 2" stroke="#F5C842" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-      <svg class="sa-c3" width="20" height="8" viewBox="0 0 20 8"><path d="M2 2 L10 7 L18 2" stroke="#F5C842" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-    </div>
-  </div>
+
+
+
+
+
+<button id="burger-btn" onclick="toggleMobileMenu()" style="display:none; background:none; border:none; cursor:pointer; padding:8px; flex-direction:column; gap:5px; z-index:200;">
+  <span style="display:block; width:26px; height:2px; background:#F5C842;"></span>
+  <span style="display:block; width:26px; height:2px; background:#F5C842;"></span>
+  <span style="display:block; width:26px; height:2px; background:#F5C842;"></span>
+</button>
+
+<div id="mobile-menu" style="display:none; position:fixed; top:70px; left:0; right:0; background:#090909; border-bottom:1px solid rgba(245,200,66,0.2); padding:2rem 1.5rem; z-index:150; flex-direction:column; gap:1.5rem;">
+  <span onclick="location.href='services.html'" style="color:#F5F4F0; font-size:17px; letter-spacing:2px; text-transform:uppercase; cursor:pointer; display:block;">Services</span>
+  <span onclick="location.href='comment-ca-marche.html'" style="color:#F5F4F0; font-size:17px; letter-spacing:2px; text-transform:uppercase; cursor:pointer; display:block;">Comment ça marche</span>
+  <span onclick="location.href='avis.html'" style="color:#F5F4F0; font-size:17px; letter-spacing:2px; text-transform:uppercase; cursor:pointer; display:block;">Avis</span>
+  <span onclick="goHome('reservation')" style="color:#F5C842; font-size:17px; letter-spacing:2px; text-transform:uppercase; cursor:pointer; display:block;">Réserver</span>
+  <span onclick="goHome('contact')" style="color:#F5F4F0; font-size:17px; letter-spacing:2px; text-transform:uppercase; cursor:pointer; display:block;">Contact</span>
+  <span onclick="location.href='mon-compte.html'" style="color:#F5F4F0; font-size:17px; letter-spacing:2px; text-transform:uppercase; cursor:pointer; display:block;">Mon compte</span>
 </div>
-</section>
 
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const isOpen = menu.style.display === 'flex';
+  menu.style.display = isOpen ? 'none' : 'flex';
+}
+function scrollTo2(id) {
+  const el = document.getElementById(id);
+  if(el) el.scrollIntoView({behavior:'smooth'});
+}
+function goHome(id) {
+  const el = document.getElementById(id);
+  if (el) { el.scrollIntoView({behavior:'smooth'}); toggleMobileMenu(); }
+  else { location.href = 'index.html#' + id; }
+}
+</script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</nav>
+<main>
+<div class="page-hero">
+  <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:#F5C842; margin-bottom:0.75rem;">Résultats réels</div>
+  <h1>AVANT / <span>APRÈS</span></h1>
+  <p>Glisse le curseur pour voir la transformation</p>
+</div>
 <section id="avant-apres" style="background:#080808; padding: 80px 0;">
-  <div style="text-align:center; margin-bottom: 3rem; padding: 0 4vw;">
-    <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:#F5C842; margin-bottom:0.75rem;">Résultats réels</div>
-    <h2 style="font-family:'Arial Black',Impact,sans-serif; font-size:clamp(32px,5vw,56px); color:#F5F4F0; text-transform:uppercase; letter-spacing:2px;">AVANT / APRÈS</h2>
-    <p style="font-size:14px; color:rgba(245,244,240,0.5); margin-top:0.75rem;">Glisse le curseur pour voir la transformation</p>
-  </div>
   <div id="slider-container" style="display:grid; grid-template-columns: repeat(4, 1fr); gap:2px; padding:0 4vw;"></div>
   <style>
     #slider-container { scrollbar-width: none; }
@@ -447,6 +812,92 @@ nav {
     });
   </script>
 </section>
+</main>
+<section id="contact" style="background:#0a0a0a; padding: 80px 0; border-top: 1px solid rgba(245,200,66,0.1);">
+  <div style="max-width:1100px; margin:0 auto; padding:0 4vw; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
+    
+    <!-- Gauche : infos contact -->
+    <div>
+      <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:#F5C842; margin-bottom:1rem;">Nous contacter</div>
+      <h2 style="font-family:'Arial Black',Impact,sans-serif; font-size:clamp(28px,4vw,48px); color:#F5F4F0; text-transform:uppercase; letter-spacing:2px; margin-bottom:2rem; line-height:1;">ON EST<br><span style="color:#F5C842;">DISPONIBLES</span></h2>
+      
+      <div style="display:flex; flex-direction:column; gap:1.5rem;">
+        <!-- Téléphone -->
+        <a href="tel:0621359387" style="display:flex; align-items:center; gap:1rem; text-decoration:none; group;">
+          <div style="width:48px; height:48px; background:rgba(245,200,66,0.1); border:1px solid rgba(245,200,66,0.3); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" stroke="#F5C842" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div style="font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(245,244,240,0.4); margin-bottom:2px;">Téléphone</div>
+            <div style="font-family:'Arial Black',Impact,sans-serif; font-size:20px; color:#F5F4F0; letter-spacing:1px;">06 21 35 93 87</div>
+          </div>
+        </a>
 
+        <!-- Email -->
+        <a href="mailto:contactwaterless@gmail.com" style="display:flex; align-items:center; gap:1rem; text-decoration:none;">
+          <div style="width:48px; height:48px; background:rgba(245,200,66,0.1); border:1px solid rgba(245,200,66,0.3); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#F5C842" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22,6 12,13 2,6" stroke="#F5C842" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div style="font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(245,244,240,0.4); margin-bottom:2px;">Email</div>
+            <div style="font-family:'Arial Black',Impact,sans-serif; font-size:16px; color:#F5F4F0; letter-spacing:1px;">contactwaterless@gmail.com</div>
+          </div>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://instagram.com/waterlessbastia" target="_blank" style="display:flex; align-items:center; gap:1rem; text-decoration:none;">
+          <div style="width:48px; height:48px; background:rgba(245,200,66,0.1); border:1px solid rgba(245,200,66,0.3); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="#F5C842" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#F5C842" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="#F5C842"/></svg>
+          </div>
+          <div>
+            <div style="font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(245,244,240,0.4); margin-bottom:2px;">Instagram</div>
+            <div style="font-family:'Arial Black',Impact,sans-serif; font-size:16px; color:#F5C842; letter-spacing:1px;">@WATERLESSBASTIA</div>
+          </div>
+        </a>
+
+        <!-- Zone -->
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <div style="width:48px; height:48px; background:rgba(245,200,66,0.1); border:1px solid rgba(245,200,66,0.3); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="#F5C842" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke="#F5C842" stroke-width="2"/></svg>
+          </div>
+          <div>
+            <div style="font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(245,244,240,0.4); margin-bottom:2px;">Zone d'intervention</div>
+            <div style="font-family:'Arial Black',Impact,sans-serif; font-size:16px; color:#F5F4F0; letter-spacing:1px;">Bastia · Haute-Corse</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Droite : CTA + horaires -->
+    <div style="display:flex; flex-direction:column; gap:2rem;">
+      <div style="background:#111; border:1px solid rgba(245,200,66,0.15); padding:2rem;">
+        <div style="font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(245,244,240,0.4); margin-bottom:0.5rem;">Horaires</div>
+        <div style="display:flex; flex-direction:column; gap:0.75rem; margin-top:1rem;">
+          <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(245,244,240,0.05); padding-bottom:0.75rem;">
+            <span style="font-size:14px; color:rgba(245,244,240,0.6);">Lundi — Vendredi</span>
+            <span style="font-size:14px; color:#F5C842; font-weight:bold;">8h — 19h</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(245,244,240,0.05); padding-bottom:0.75rem;">
+            <span style="font-size:14px; color:rgba(245,244,240,0.6);">Samedi</span>
+            <span style="font-size:14px; color:#F5C842; font-weight:bold;">9h — 17h</span>
+          </div>
+          <div style="display:flex; justify-content:space-between;">
+            <span style="font-size:14px; color:rgba(245,244,240,0.6);">Dimanche</span>
+            <span style="font-size:14px; color:rgba(245,244,240,0.3);">Sur demande</span>
+          </div>
+        </div>
+      </div>
+
+      <button onclick="location.href='index.html#reservation'" style="background:#F5C842; color:#090909; padding:16px; font-family:'Arial Black',Impact,sans-serif; font-size:16px; letter-spacing:2px; text-transform:uppercase; border:none; cursor:pointer; width:100%;">
+        PRENDRE RDV →
+      </button>
+
+      <div style="text-align:center;">
+        <div style="font-size:11px; color:rgba(245,244,240,0.2); letter-spacing:1px; text-transform:uppercase;">© 2026 WATERLESS Bastia · waterless-corse.fr</div>
+      </div>
+    </div>
+
+  </div>
+</section>
 </body>
 </html>
