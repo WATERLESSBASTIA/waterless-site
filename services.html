@@ -692,7 +692,83 @@ function goHome(id) {
   <p>Glisse le curseur pour voir la transformation</p>
 </div>
 <section id="avant-apres" style="background:#080808; padding: 80px 0;">
-  <div id="slider-container" style="display:grid; grid-template-columns: repeat(4, 1fr); gap:2px; padding:0 4vw;"></div>
+
+  <style>
+    #cat-tabs { display:flex; justify-content:center; gap:0; padding:0 4vw; margin-bottom:2.5rem; }
+    .cat-tab {
+      flex:0 1 220px; background:transparent; border:1px solid rgba(245,200,66,0.2); color:rgba(245,244,240,0.55);
+      padding:16px 12px; cursor:pointer; font-family:'Arial Black',Impact,sans-serif; font-size:13px; letter-spacing:2px; text-transform:uppercase;
+      display:flex; align-items:center; justify-content:center; gap:10px; transition: all 0.25s; margin-left:-1px;
+    }
+    .cat-tab .cat-ico { font-size:18px; }
+    .cat-tab:hover { color:#F5F4F0; border-color:rgba(245,200,66,0.5); }
+    .cat-tab.active { background:#F5C842; color:#090909; border-color:#F5C842; }
+    .cat-panel { display:none; }
+    .cat-panel.active { display:block; }
+    .cat-soon {
+      max-width:640px; margin:0 auto; padding:3rem 2rem; text-align:center;
+      background:#0f0f0f; border:1px solid rgba(245,200,66,0.15);
+    }
+    .cat-soon .ico { font-size:48px; margin-bottom:1rem; }
+    .cat-soon h3 { font-family:'Arial Black',Impact,sans-serif; font-size:22px; color:#F5F4F0; letter-spacing:2px; text-transform:uppercase; margin-bottom:0.75rem; }
+    .cat-soon p { font-size:14px; color:rgba(245,244,240,0.55); line-height:1.7; }
+    .cat-soon .price { display:inline-block; margin-top:1.25rem; font-family:'Arial Black',Impact,sans-serif; font-size:28px; color:#F5C842; }
+    .cat-soon .cta {
+      display:inline-block; margin-top:1.5rem; background:#F5C842; color:#090909; padding:14px 28px; text-decoration:none;
+      font-family:'Arial Black',Impact,sans-serif; font-size:13px; letter-spacing:2px; text-transform:uppercase;
+    }
+    @media (max-width:768px) {
+      #cat-tabs { padding:0 1rem; }
+      .cat-tab { flex:1 1 0; padding:14px 6px; font-size:11px; letter-spacing:1px; gap:6px; }
+      .cat-tab .cat-ico { font-size:16px; }
+      .cat-soon { margin:0 1rem; padding:2.5rem 1.25rem; }
+    }
+  </style>
+
+  <div id="cat-tabs">
+    <button class="cat-tab active" data-cat="voiture"><span class="cat-ico">🚗</span>Voiture</button>
+    <button class="cat-tab" data-cat="moto"><span class="cat-ico">🏍️</span>Moto</button>
+    <button class="cat-tab" data-cat="bateau"><span class="cat-ico">⛵</span>Bateau</button>
+  </div>
+
+  <div id="cat-voiture" class="cat-panel active">
+    <div id="slider-container" style="display:grid; grid-template-columns: repeat(4, 1fr); gap:2px; padding:0 4vw;"></div>
+  </div>
+
+  <div id="cat-moto" class="cat-panel">
+    <div class="cat-soon">
+      <div class="ico">🏍️</div>
+      <h3>Moto</h3>
+      <p>Carénages · Cadre · Roues · Selle<br>Photos avant/après en cours de shooting.</p>
+      <div class="price">Dès 25€</div><br>
+      <a class="cta" href="index.html#reservation">Réserver une moto →</a>
+    </div>
+  </div>
+
+  <div id="cat-bateau" class="cat-panel">
+    <div class="cat-soon">
+      <div class="ico">⛵</div>
+      <h3>Bateau</h3>
+      <p>Coque · Pont · Cockpit · Directement au port<br>Photos avant/après en cours de shooting.</p>
+      <div class="price">Sur devis</div><br>
+      <a class="cta" href="index.html#contact">Demander un devis →</a>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      var cats=['voiture','moto','bateau'];
+      function show(c){
+        if(cats.indexOf(c)<0) c='voiture';
+        document.querySelectorAll('.cat-tab').forEach(function(t){ t.classList.toggle('active', t.dataset.cat===c); });
+        document.querySelectorAll('.cat-panel').forEach(function(p){ p.classList.toggle('active', p.id==='cat-'+c); });
+        if(history.replaceState) history.replaceState(null,'','#'+c);
+      }
+      document.querySelectorAll('.cat-tab').forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.cat); }); });
+      show((location.hash||'#voiture').slice(1));
+      window.addEventListener('hashchange', function(){ show(location.hash.slice(1)); });
+    })();
+  </script>
   <style>
     #slider-container { scrollbar-width: none; }
     #slider-container::-webkit-scrollbar { display: none; }

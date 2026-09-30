@@ -216,6 +216,18 @@ nav {
   -webkit-backdrop-filter: blur(12px);
 }
 .visual-card.featured { border-color: rgba(245,200,66,0.45); }
+.visual-card { cursor: pointer; transition: border-color 0.25s, transform 0.25s, background 0.25s; }
+.visual-card:hover { border-color: #F5C842; background: rgba(245,200,66,0.08); transform: translateX(6px); }
+.card-cta {
+  margin-left: 12px; flex-shrink: 0;
+  font-family: 'Arial Black', Impact, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: #F5C842; border: 1px solid rgba(245,200,66,0.5); padding: 6px 10px;
+  display: flex; align-items: center; gap: 6px; transition: background 0.25s, color 0.25s;
+}
+.card-cta span { display: inline-block; animation: cta-nudge 1.4s ease-in-out infinite; }
+@keyframes cta-nudge { 0%,100% { transform: translateX(0); } 50% { transform: translateX(4px); } }
+.visual-card:hover .card-cta { background: #F5C842; color: #090909; }
+.zone-tag::after { content: 'Clique une catégorie'; margin-left: 12px; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(245,200,66,0.6); white-space: nowrap; }
 .card-icon { font-size: 20px; width: 36px; text-align: center; flex-shrink: 0; }
 .card-name {
   font-family: 'Arial Black', Impact, sans-serif;
@@ -702,20 +714,23 @@ function goHome(id) {
     </div>
     <div class="hero-visual">
       <div class="zone-tag"><span>Nos prestations</span><span class="zone-line"></span></div>
-      <div class="visual-card featured">
+      <div class="visual-card featured" onclick="location.href='services.html#voiture'">
         <div class="card-icon">🚗</div>
         <div><div class="card-name">Voiture</div><div class="card-detail">Extérieur · Intérieur · Vitres · Jantes</div></div>
         <div class="card-price">Dès 27€</div>
+        <div class="card-cta">Voir <span>→</span></div>
       </div>
-      <div class="visual-card">
+      <div class="visual-card" onclick="location.href='services.html#moto'">
         <div class="card-icon">🏍️</div>
         <div><div class="card-name">Moto</div><div class="card-detail">Carénages · Cadre · Roues</div></div>
         <div class="card-price">Dès 25€</div>
+        <div class="card-cta">Voir <span>→</span></div>
       </div>
-      <div class="visual-card">
+      <div class="visual-card" onclick="location.href='services.html#bateau'">
         <div class="card-icon">⛵</div>
         <div><div class="card-name">Bateau</div><div class="card-detail">Coque · Pont · Cockpit · Au port</div></div>
         <div class="card-badge">Sur devis</div>
+        <div class="card-cta">Voir <span>→</span></div>
       </div>
       </div>
     </div>
