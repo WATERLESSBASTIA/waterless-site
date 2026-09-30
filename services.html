@@ -1173,5 +1173,20 @@ function goHome(id) {
   }, true);
 })();
 </script>
+
+<!-- Conversion Google Ads : clic téléphone -->
+<script>
+(function(){
+  document.addEventListener('click', function(e){
+    var el = e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+    if (!el) return;
+    if (typeof gtag !== 'function') return;
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17502582352/X0qlCK67iowdENDs8JlB',
+      'transport_type': 'beacon'
+    });
+  }, true);
+})();
+</script>
 </body>
 </html>
