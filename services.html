@@ -1,6 +1,33 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<!-- Google Consent Mode v2 -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied'
+  });
+  try {
+    if (localStorage.getItem('wl_consent') === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+    }
+  } catch(e) {}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17502582352"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'AW-17502582352');
+</script>
 <meta charset="utf-8">
 
 
@@ -1059,11 +1086,92 @@ function goHome(id) {
       </button>
 
       <div style="text-align:center;">
-        <div style="font-size:11px; color:rgba(245,244,240,0.2); letter-spacing:1px; text-transform:uppercase;">© 2026 WATERLESS Bastia · waterless-corse.fr</div>
+        <div style="font-size:11px; color:rgba(245,244,240,0.2); letter-spacing:1px; text-transform:uppercase;">© 2026 WATERLESS Bastia · waterless-corse.fr · <a href="#" id="wl-cookie-manage" style="color:inherit; text-decoration:underline;">Gérer les cookies</a></div>
       </div>
     </div>
 
   </div>
 </section>
+
+<!-- Bannière cookies -->
+<style>
+  #wl-cookie {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999;
+    background: rgba(9,9,9,0.97); border-top: 1px solid rgba(245,200,66,0.35);
+    padding: 14px 4vw; display: none; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  #wl-cookie.show { display: flex; }
+  #wl-cookie p { margin: 0; font-size: 13px; line-height: 1.5; color: rgba(245,244,240,0.75); max-width: 560px; }
+  #wl-cookie .wl-cookie-btns { display: flex; gap: 10px; flex-shrink: 0; }
+  #wl-cookie button {
+    width: 120px; height: 40px; background: transparent; border: 1px solid #F5C842; color: #F5C842;
+    font-family: 'Arial Black', Impact, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+  #wl-cookie button:hover { background: #F5C842; color: #090909; }
+  @media (max-width: 768px) {
+    #wl-cookie { flex-direction: column; gap: 12px; padding: 14px 1.25rem calc(14px + env(safe-area-inset-bottom)); text-align: center; }
+    #wl-cookie p { font-size: 12px; }
+    #wl-cookie .wl-cookie-btns { width: 100%; }
+    #wl-cookie button { flex: 1 1 0; width: auto; height: 44px; }
+  }
+</style>
+<div id="wl-cookie" role="dialog" aria-live="polite" aria-label="Cookies">
+  <p>On utilise des cookies pour mesurer l'efficacité de nos publicités. Tu es libre d'accepter ou de refuser.</p>
+  <div class="wl-cookie-btns">
+    <button type="button" id="wl-cookie-accept">Accepter</button>
+    <button type="button" id="wl-cookie-refuse">Refuser</button>
+  </div>
+</div>
+<script>
+(function(){
+  var box = document.getElementById('wl-cookie');
+  function read(){ try { return localStorage.getItem('wl_consent'); } catch(e) { return null; } }
+  function write(v){ try { localStorage.setItem('wl_consent', v); } catch(e) {} }
+  function show(){ box.classList.add('show'); }
+  function hide(){ box.classList.remove('show'); }
+  if (read() !== 'granted' && read() !== 'denied') show();
+  document.getElementById('wl-cookie-accept').addEventListener('click', function(){
+    write('granted');
+    if (typeof gtag === 'function') gtag('consent', 'update', {
+      'ad_storage': 'granted', 'ad_user_data': 'granted', 'ad_personalization': 'granted', 'analytics_storage': 'granted'
+    });
+    hide();
+  });
+  document.getElementById('wl-cookie-refuse').addEventListener('click', function(){ write('denied'); hide(); });
+  var manage = document.getElementById('wl-cookie-manage');
+  if (manage) manage.addEventListener('click', function(e){
+    e.preventDefault();
+    try { localStorage.removeItem('wl_consent'); } catch(err) {}
+    show();
+  });
+})();
+</script>
+
+<!-- Conversion Google Ads : clic Prendre RDV -->
+<script>
+(function(){
+  function isBooking(el){
+    if (!el) return false;
+    var href = (el.getAttribute('href') || '').toLowerCase();
+    var oc = (el.getAttribute('onclick') || '').toLowerCase();
+    var txt = (el.textContent || '').replace(/\s+/g,' ').trim().toUpperCase();
+    if (href.indexOf('#reservation') > -1 || href.indexOf('calendly.com') > -1) return true;
+    if (oc.indexOf('reservation') > -1) return true;
+    if (txt.indexOf('PRENDRE RDV') === 0 || txt.indexOf('RÉSERVER') === 0 || txt.indexOf('RESERVER') === 0) return true;
+    return false;
+  }
+  document.addEventListener('click', function(e){
+    var el = e.target.closest ? e.target.closest('a, button, [onclick]') : null;
+    if (!el || !isBooking(el)) return;
+    if (typeof gtag !== 'function') return;
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17502582352/UWs2CKvMiYwdENDs8JlB',
+      'transport_type': 'beacon'
+    });
+  }, true);
+})();
+</script>
 </body>
 </html>
