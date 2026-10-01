@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<meta charset="utf-8">
 <!-- Google Consent Mode v2 -->
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -28,10 +29,9 @@
   gtag('js', new Date());
   gtag('config', 'AW-17502582352');
 </script>
-<meta charset="utf-8">
 
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 @media (max-width: 768px) {
   .hero {
@@ -957,30 +957,6 @@ function goHome(id) {
 })();
 </script>
 
-<!-- Conversion Google Ads : clic Prendre RDV -->
-<script>
-(function(){
-  function isBooking(el){
-    if (!el) return false;
-    var href = (el.getAttribute('href') || '').toLowerCase();
-    var oc = (el.getAttribute('onclick') || '').toLowerCase();
-    var txt = (el.textContent || '').replace(/\s+/g,' ').trim().toUpperCase();
-    if (href.indexOf('#reservation') > -1 || href.indexOf('calendly.com') > -1) return true;
-    if (oc.indexOf('reservation') > -1) return true;
-    if (txt.indexOf('PRENDRE RDV') === 0 || txt.indexOf('RÉSERVER') === 0 || txt.indexOf('RESERVER') === 0) return true;
-    return false;
-  }
-  document.addEventListener('click', function(e){
-    var el = e.target.closest ? e.target.closest('a, button, [onclick]') : null;
-    if (!el || !isBooking(el)) return;
-    if (typeof gtag !== 'function') return;
-    gtag('event', 'conversion', {
-      'send_to': 'AW-17502582352/UWs2CKvMiYwdENDs8JlB',
-      'transport_type': 'beacon'
-    });
-  }, true);
-})();
-</script>
 
 <!-- Conversion Google Ads : clic téléphone -->
 <script>

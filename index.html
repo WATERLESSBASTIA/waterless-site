@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<meta charset="utf-8">
 <!-- Google Consent Mode v2 -->
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -28,10 +29,9 @@
   gtag('js', new Date());
   gtag('config', 'AW-17502582352');
 </script>
-<meta charset="utf-8">
 
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 @media (max-width: 768px) {
   .hero {
@@ -686,8 +686,7 @@ nav {
     {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "19:00"},
     {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "17:00"}
   ],
-  "sameAs": ["https://instagram.com/waterlessbastia"],
-  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "bestRating": "5", "reviewCount": "200"}
+  "sameAs": ["https://instagram.com/waterlessbastia"]
 }
 </script>
 </head>
@@ -844,7 +843,7 @@ function goHome(id) {
     <div style="background:#0f0f0f; border:1px solid rgba(245,200,66,0.2); border-radius:4px; overflow:hidden;">
       <!-- Calendly inline widget -->
       <div class="calendly-inline-widget"
-        data-url="https://calendly.com/contactwaterless?hide_gdpr_banner=1&background_color=0f0f0f&text_color=f5f4f0&primary_color=f5c842"
+        data-url="https://calendly.com/contactwaterless?background_color=0f0f0f&text_color=f5f4f0&primary_color=f5c842"
         style="min-width:320px; height:700px;">
       </div>
       <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
@@ -1005,28 +1004,19 @@ function goHome(id) {
 })();
 </script>
 
-<!-- Conversion Google Ads : clic Prendre RDV -->
+
+<!-- Conversion Google Ads : réservation Calendly confirmée -->
 <script>
 (function(){
-  function isBooking(el){
-    if (!el) return false;
-    var href = (el.getAttribute('href') || '').toLowerCase();
-    var oc = (el.getAttribute('onclick') || '').toLowerCase();
-    var txt = (el.textContent || '').replace(/\s+/g,' ').trim().toUpperCase();
-    if (href.indexOf('#reservation') > -1 || href.indexOf('calendly.com') > -1) return true;
-    if (oc.indexOf('reservation') > -1) return true;
-    if (txt.indexOf('PRENDRE RDV') === 0 || txt.indexOf('RÉSERVER') === 0 || txt.indexOf('RESERVER') === 0) return true;
-    return false;
-  }
-  document.addEventListener('click', function(e){
-    var el = e.target.closest ? e.target.closest('a, button, [onclick]') : null;
-    if (!el || !isBooking(el)) return;
+  window.addEventListener('message', function(e){
+    if (!e.origin || e.origin.indexOf('calendly.com') === -1) return;
+    if (!e.data || e.data.event !== 'calendly.event_scheduled') return;
     if (typeof gtag !== 'function') return;
     gtag('event', 'conversion', {
       'send_to': 'AW-17502582352/UWs2CKvMiYwdENDs8JlB',
       'transport_type': 'beacon'
     });
-  }, true);
+  });
 })();
 </script>
 
