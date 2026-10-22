@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /mon-compte.html
-Disallow: /mentions-legales.html
-Disallow: /politique-confidentialite.html
-
-Sitemap: https://www.waterless-corse.fr/sitemap.xml
